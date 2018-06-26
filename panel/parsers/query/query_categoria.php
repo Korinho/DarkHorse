@@ -1,0 +1,1 @@
+<?php	$sql_destacada = "SELECT *								FROM adm_categoria WHERE id=$idcategoria ;"; 	$result_destacada = mysql_query($sql_destacada, $conn);	$newArray = mysql_fetch_array($result_destacada);		$id = $newArray['id'];		$categoria = $newArray['categoria']; 						?>

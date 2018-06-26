@@ -1,0 +1,129 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.gray-text
+{color:gray;
+font-family:Helvetica, Arial, sans-serif;
+font-size:14px;
+margin-bottom:3px;
+margin-left:10px;
+}
+	
+.green-field
+{background-color:#3abc7a;
+color:white;
+width:335px;
+padding:10px;
+border:none;
+outline:none;
+margin-left:10px;
+}
+
+#style{
+	background-color:#F1F1F1;
+	position:float;
+	width:380px;
+	height:380px;
+	padding:15px;
+	/*border-style:solid;
+	border-width:15px;
+	border-color:white;*/
+}
+
+#green-text 
+{color:#007464;
+text-align:center;
+font-family: Helvetica, Arial, sans-serif;
+font-size:18px;
+}
+
+#submit-button
+{background-color:#007464;
+color:white;
+width:120px;
+border:none;
+outline:none;
+padding:10px;
+margin-top:25px;
+margin-left:15px;
+margin-bottom:15px;
+}
+
+#fade{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+}
+
+#light{
+	display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 620px;
+    height: 380px;
+    margin-left: -360px;
+    margin-top: -190px;  
+    z-index:1002;
+    overflow:visible;
+}
+
+#light1{
+	display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 620px;
+    height: 380px;
+    margin-left: -360px;
+    margin-top: -190px;  
+    z-index:1002;
+    overflow:visible;
+}
+
+#light2{
+	display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 620px;
+    height: 380px;
+    margin-left: -360px;
+    margin-top: -190px;  
+    z-index:1002;
+    overflow:visible;
+}
+
+#light3{
+	display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 620px;
+    height: 380px;
+    margin-left: -360px;
+    margin-top: -190px;  
+    z-index:1002;
+    overflow:visible;
+}
+
+#light4{
+	display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 620px;
+    height: 380px;
+    margin-left: -360px;
+    margin-top: -190px;  
+    z-index:1002;
+    overflow:visible;
+}
