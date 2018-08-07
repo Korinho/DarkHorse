@@ -1,8 +1,8 @@
-<?php   include("sesion.php");
+<?php   
 		include ("head.php");
 		include ("header.php");
-		include ("scripts/conn.php");
-		$bd	= new PDO($dsnw, $userw, $passw, $optPDO);
+
+		$candidatos = ControllerCandidato::ctrMostrarCandidatos();
 	?>
 	
 	<section  class="inicial">
@@ -48,9 +48,6 @@
 		</div>
 
 	</section>
-
-
-
 	<section>
 
 		<div class="block remove-bottom">
@@ -89,31 +86,23 @@
 
 				 		<div class="emply-list-sec style2">
 								<?php
-								
-								$result = $bd->query("SELECT * FROM resume WHERE display='yes' order by id asc");
-								foreach ($result->fetchAll(PDO::FETCH_ASSOC) as $row) {	
-								$language=$row['language'];
-								if($language == "en"){$language = "English";}
-								if($language == "fr"){$language = "French";}
+										$item="id_usuario";
+									foreach ($candidatos as $key => $row) {
+										if($row["display"]==1){
+											$usuario = ctrUsuario::ctrMostrarUsuario($item,$row["id_usuario"]);
 								?>
 								<div class="emply-list">
-
 				 				<div class="emply-list-info edu-hisinfo">
-
-				 					
-
-				 					<h3 > <a href="resume.php?resume=<?php echo $row['id']; ?>" title=""><?php echo $row['resume']; ?></a></h3>
-
-
-				 					<h3 class="profile-title"><i class="la la-map-marker"></i> <?php echo $row['country']; ?>    |   <i class="la la-star"></i> <?php echo $row['id']; ?>   |   <i class="la la-language"></i> <?php  echo $language; ?></h3>
-
-				 					<p><?php echo $row['summary']; ?></p>
+				 					<h3 > <a href="resume.php?resume=<?php echo $row['id']; ?>" title=""><?php echo $usuario['nombre']," ",$row["apellido"]; ?></a></h3>
+				 					<h3 class="profile-title"><i class="la la-map-marker"></i> <?php echo $row['pais']; ?>    |   <i class="la la-note"></i> <?php echo $row['resumen']; ?>   |   <i class="la la-language"></i> <?php  echo $row["idioma"];?></h3>
+				 					<p><?php echo $row['titulo']; ?></p>
 
 				 				</div>
 
 								</div><!-- Employe List -->
 							
-							<?php $language="";   }  ?>
+							<?php }
+							} ?>
 									
 							
 				 			

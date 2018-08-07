@@ -1,3 +1,19 @@
+  <?php
+session_start();
+require 'requirelanguage.php';
+require_once("Controller/candidate.controller.php");
+require_once("Controller/usuario.controller.php");
+require_once("Controller/employer.controller.php");
+require_once("Controller/experiencia.controller.php");
+require_once("Controller/vacancies.controller.php");
+
+require_once("Model/candidate.model.php");
+require_once("Model/usuario.model.php");
+require_once("Model/employer.model.php");
+require_once("Model/experiencia.model.php");
+require_once("Model/vacancies.model.php");
+
+?>
   <div class="responsive-header four">
             <div class="responsive-menubar">
                <div class="res-logo"><a href="index.php" title=""><img src="images/horse.png" alt="" /></a></div>
@@ -14,7 +30,7 @@
                <div class="btn-extars">
                   <!--<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>-->
                   <ul class="account-btns">
-                     <li class="signup-popup"><a href="resgiter.php" title=""><i class="la la-key"></i> CV Posting</a></li>
+                     <li class="signup-popup"><a href="resgiter" title=""><i class="la la-key"></i> CV Posting</a></li>
                      <li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
                   </ul>
                </div>
@@ -28,27 +44,27 @@
                      <li class="menu-item-has-children">
                         <a href="#" title="">Dark Horse </a>
                         <ul>
-                           <li><a href="about.php" title="">About Us</a></li>
-                           <li><a href="who-we-are.php" title="">Who we are</a></li>
-                           <li><a href="recruitment.php" title="">Recruitment</a></li>
-                           <li><a href="interim-management.php" title="">Interim Management</a></li>
+                           <li><a href="about" title="">About Us</a></li>
+                           <li><a href="who-we-are" title="">Who we are</a></li>
+                           <li><a href="recruitment" title="">Recruitment</a></li>
+                           <li><a href="interim-management" title="">Interim Management</a></li>
                         </ul>
                      </li>
                      <li class="menu-item-has-children">
                         <a href="#" title="">Global Placements </a>
                         <ul>
-							<li><a href="it-consulting.php" title="">IT Consulting</a></li>
-							<li><a href="sap-consulting.php" title="">SAP Consulting</a></li>
-                           <li><a href="management-consulting.php" title=""> Management Consulting</a></li>
+							<li><a href="it-consulting" title="">IT Consulting</a></li>
+							<li><a href="sap-consulting" title="">SAP Consulting</a></li>
+                           <li><a href="management-consulting" title=""> Management Consulting</a></li>
                            
                           
                            <!--<li><a href="employer_single1.html" title="">Employer Single 1</a></li>
                               <li><a href="employer_single2.html" title="">Employer Single 2</a></li>-->
                         </ul>
                      </li>
-                     <li class="menu-item">							<a href="vacancies.php" title="">Current Vacancies</a>						</li>
+                     <li class="menu-item">							<a href="vacancies" title="">Current Vacancies</a>						</li>
                      <li class="menu-item">
-                        <a href="resumes.php" title="">CV's & Bios</a>
+                        <a href="resumes" title="">CV's & Bios</a>
                         <!--<ul>
                            <li><a href="candidates_list.html" title="">Candidates List 1</a></li>
                            <li><a href="candidates_list2.html" title="">Candidates List 2</a></li>
@@ -74,8 +90,8 @@
                      <li class="menu-item">
                         <a href="#" title="">Resources </a>
                         <ul>
-                           <li><a href="blog.php"> Blog </a></li>
-						   <li><a href="industries.php" title="">Industries</a></li>
+                           <li><a href="blog"> Blog </a></li>
+						   <li><a href="industries" title="">Industries</a></li>
                            <!--<li><a href="blog_list2.html">Blog List 2</a></li>
                            <li><a href="blog_list3.html">Blog List 3</a></li>
                            <li><a href="blog_single.html">Blog Single</a></li>-->
@@ -111,6 +127,49 @@
                </div>
             </div>
          </div>
+         <style>
+            /* Dropdown Button */
+.dropbtn {
+    background-color: #222b38;
+    color: white;
+    font-size: 10px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-top: 31px;
+    background-color: #f1f1f1;
+    min-width: 145px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #222b38;}
+         </style>
          <header class="style4 stick-top forsticky">
             <div class="topbar">
                <div class="container">
@@ -122,10 +181,17 @@
                      <li><a href="#" title=""><i class="fa fa-behance"></i></a></li>
                   </ul>
                   <div class="h-contact">
-                     <span><i class="la la-phone"></i>Call us 0850 0000 00 00 </span>
-                     <span><i class="la la-envelope-o"></i>info@darkhorserecruitment.com<?php echo $username; ?></span>
-					<?php if($id_usuario > 0){?><span><i class="la la-user" style="color:#73fd05;"></i><?php echo $username; ?></span><?php } ?>
-					<?php if($id_usuario > 0){?><span><a href="logout.php"><i class="la la-power-off" style="color:#ff5656;"></i>Logout</span><?php } ?>
+                     <span><i class="la la-phone"></i><?php echo $menu_call_us; ?> 0850 0000 00 00 </span>
+                     <span><i class="la la-envelope-o"></i>info@darkhorserecruitment.com<?php/*echo $username; */?></span>
+                     <div class="dropdown">
+                       <button class="dropbtn"><?php echo $cambiarIdioma; ?></button>
+                       <div class="dropdown-content">
+                         <a href="changelanguage.php?language=es"><?php echo $spanish; ?></a>
+                         <a href="changelanguage.php?language=en"><?php echo $english; ?></a>
+                       </div>
+                     </div>
+					<?php /* if($id_usuario > 0){?><span><i class="la la-user" style="color:#73fd05;"></i><?php echo $username; ?></span><?php } ?>
+					<?php if($id_usuario > 0){?><span><a href="logout"><i class="la la-power-off" style="color:#ff5656;"></i>Logout</span><?php } */?>
                   </div>
                </div>
             </div>
@@ -137,12 +203,78 @@
                   <!-- Logo -->
                   <div class="btn-extars">
                      <ul class="account-btns">
-						<?php if($id_usuario > 0){?>
-						<li class=""><a href="dashboard.php" title="">Dashboard</a></li>
-						<?php } else{ ?>
-                        <li class=""><a href="register.php" title="">CV Posting</a></li>
-                        <li class="signin-popup"><a title="">Login</a></li>
-						<?php } ?>
+
+
+
+                     <?php
+
+            if(isset($_SESSION["validarSesion"])){
+
+               if($_SESSION["validarSesion"] == "ok"){
+
+                  if($_SESSION["modo"] == "directo"){
+
+                     if($_SESSION["foto"] != ""){
+
+                        echo '<li>
+
+                              <img class="img-circle" src="'.$url.$_SESSION["foto"].'" width="10%">
+
+                            </li>';
+
+                     }else{
+
+                        echo '<li>
+
+                           <img class="img-circle" src="'.$servidor.'vistas/img/usuarios/default/anonymous.png" width="10%">
+
+                        </li>';
+
+                     }
+
+                     echo '<li>|</li>
+                      <li class=""><a href="'.$url.'dashboard" title="">Dashboard</a></li>
+                      <li><a href="'.$url.'salir">Salir</a></li>';
+
+
+                  }
+
+                  if($_SESSION["modo"] == "facebook"){
+
+                     echo '<li>
+
+                           <img class="img-circle" src="'.$_SESSION["foto"].'" width="10%">
+
+                           </li>
+                           <li class=""><a href="'.$url.'dashboard" title="">Dashboard</a></li>
+                           <li><a href="'.$url.'salir" class="salir">Salir</a></li>';
+
+                  }
+
+                  if($_SESSION["modo"] == "google"){
+
+                     echo '<li>
+
+                           <img class="img-circle" src="'.$_SESSION["foto"].'" width="10%">
+
+                           </li>
+                           <li class=""><a href="'.$url.'dashboard" title="">Dashboard</a></li>
+                           <li><a href="'.$url.'salir">Salir</a></li>';
+
+                  }
+
+               }
+
+            }else{
+
+               echo '<li class=""><a href="register" title=""> '.$menu_CVposting.' </a></li>
+                        <li class="signin-popup"><a title="">'.$menu_login.'</a></li>';
+
+            }
+
+            ?>
+
+						<!---->
                      </ul>
                   </div>
                   <!-- Btn Extras -->
@@ -151,29 +283,29 @@
                         <li class="menu-item-has-children">
                            <a href="#" title="">Dark Horse </a>							
                            <ul>
-                              <li><a href="about.php" title="">About Us</a></li>
-                           <li><a href="who-we-are.php" title="">Who we are</a></li>
-                           <li><a href="recruitment.php" title="">Recruitment</a></li>
-                           <li><a href="interim-management.php" title="">Interim Management</a></li>
+                              <li><a href="about" title=""><?php echo $menu_about_us ?></a></li>
+                           <li><a href="who-we-are" title=""><?php echo $menu_who_are; ?></a></li>
+                           <li><a href="recruitment" title=""><?php echo $menu_recruitment; ?></a></li>
+                           <li><a href="interim-management" title=""><?php echo $menu_in_management; ?></a></li>
                            </ul>
                         </li>
                         <li class="menu-item-has-children">
-                           <a href="#" title="">Global Placements </a>							
+                           <a href="#" title=""><?php echo $menu_global_place; ?></a>							
                            <ul>
-                             <li><a href="it-consulting.php" title="">IT Consulting</a></li>
-							<li><a href="sap-consulting.php" title="">SAP Consulting</a></li>
-                           <li><a href="management-consulting.php" title=""> Management Consulting</a></li>
+                             <li><a href="it-consulting" title=""><?php echo $menu_it_consulting; ?></a></li>
+							<li><a href="sap-consulting" title=""><?php echo $menu_sap_consulting; ?></a></li>
+                           <li><a href="management-consulting" title=""><?php echo $menu_manag_consulting; ?></a></li>
                            </ul>
                         </li>
-                        <li class="menu-item">							<a  href="vacancies.php" title="">Current Vacancies</a>													</li>
+                        <li class="menu-item"><a  href="vacancies" title=""><?php echo $menu_vacancies; ?></a></li>
                         <li class="menu-item">
-                           <a  href="resumes.php" title="">CV's & Bios</a> 
+                           <a  href="resumes" title="">CV's & Bios</a> 
                         </li>
                         <li class="menu-item">
-                           <a href="#" title="">Resources </a>
+                           <a href="#" title=""><?php echo $menu_recurses; ?></a>
 						   <ul>
-                              <li><a href="blog.php" title="">Blog</a></li>
-							  <li><a href="industries.php" title="">Industries</a></li>
+                              <li><a href="blog" title=""><?php echo $menu_blog; ?></a></li>
+							  <li><a href="industries" title=""><?php echo $menu_industries; ?></a></li>
 							 </ul> 
                         </li>
                      </ul>

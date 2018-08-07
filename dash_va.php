@@ -3,7 +3,7 @@
 					 			<h3>Dashboard</h3>
 						 		<div class="cat-sec">
 									<div class="row no-gape">
-										<div class="col-lg-4 col-md-4 col-sm-12">
+										<!--<div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="p-category">
 												<a href="#" title="">
 													<i class="la la-briefcase"></i>
@@ -11,7 +11,7 @@
 													<p>0 Applications</p>
 												</a>
 											</div>
-										</div>
+										</div>-->
 										<div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="p-category view-resume-list">
 												<a href="#" title="">
@@ -30,19 +30,20 @@
 												</a>
 											</div>
 										</div>
-									</div>
-								</div>
-								<div class="cat-sec">
-									<div class="row no-gape">
 										<div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="p-category">
-												<a href="#" title="">
+												<a href="job	" title="">
 													<i class="la la-check"></i>
-													<span>Appropriate For Me</span>
+													<span>Vacancies</span>
 													<p>(0 Jobs)</p>
 												</a>
 											</div>
 										</div>
+									</div>
+								</div>
+								<div class="cat-sec">
+									<div class="row no-gape">
+										
 										<div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="p-category follow-companies-popup">
 												<a href="#" title="">													<i class="la la-file"></i>													<span>My Profile</span>													<p>View Profile</p>												</a>

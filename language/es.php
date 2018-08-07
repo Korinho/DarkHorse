@@ -1,0 +1,26 @@
+<?php
+$holamundo="Hola Mundo!";
+$cambiarIdioma="Cambiar Idioma";
+$inicio="Inicio";
+$spanish="Español";
+$english="Inglés";
+$menu_CVposting="Postear CV";
+$menu_login="Ingresar";
+$menu_about_us="Nosotros";
+$menu_who_are="¿Quienes somos?";
+$menu_recruitment="Reclutamiento";
+$menu_in_management="Gestión Interna";
+$menu_global_place="Colocación Global";
+$menu_it_consulting="Consultoria de TI";
+$menu_sap_consulting="Consultoria de SAP";
+$menu_manag_consulting="Consultoria de Gestión";
+$menu_vacancies="Ofertas de Empleo";
+$menu_recurses="Recursos";
+$menu_blog="Blog";
+$menu_industries="Industrias";
+$menu_call_us="Llamanos al";
+$footer_follow_us="Siguenos";
+$footer_back_top="Volver arriba";
+$footer_Newsletter="Boletín de Suscripción";
+$vacancies="Vacantes";
+$home="Inicio";

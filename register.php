@@ -1,7 +1,11 @@
-<?php   include("sesion.php");
+<?php 
 		include ("head.php");
 		echo '<link rel="stylesheet" href="js/tel/css/intlTelInput.css">';
 		include ("header.php");
+        require_once "Controller/candidate.controller.php";
+        require_once "Controller/employer.controller.php";
+        require_once "Model/candidate.model.php";
+        require_once "Model/employer.model.php";
 	?>
 	<style>
 	.account-popup > form .cfield input.error {
@@ -29,9 +33,9 @@
 
 							<div class="inner-title2">
 
-								<h3>Register</h3>
+								<h3><?php echo $registrer; ?></h3>
 
-								<span>Keep up to date with the latest news</span>
+								<span><?php echo $registrer2; ?></span>Keep up to date with the latest news
 
 							</div>
 
@@ -39,11 +43,11 @@
 
 								<ul class="breadcrumbs">
 
-									<li><a href="#" title="">Home</a></li>
+									<li><a href="#" title=""><?php echo $home; ?></a></li>
 
-									<li><a href="#" title="">Pages</a></li>
+									<li><a href="#" title=""><?php echo $page; ?></a></li>
 
-									<li><a href="#" title="">Register</a></li>
+									<li><a href="#" title=""><?php echo $registrer; ?></a></li>
 
 								</ul>
 
@@ -77,15 +81,15 @@
 
 							<div class="account-popup">
 
-								<h3>Register</h3>
+								<h3><?php echo $registrer; ?></h3>
 
 								<span style="color:#24324a">Register your CV for actual opportunities worldwide</span><br><span>Register From</span>
-									<form id="fsave" style="margin-top:0px">
+									<form id="fsave" method="post" style="margin-top:0px" onsubmit="return valid()">
 								<div class="select-user" style="margin-bottom:30px">
 
-									<span id="applicant">Applicant</span>
+									<span id="applicant"><?php echo $applicant; ?></span>
 									<input type="hidden"  name="type" class="check type" value="0">	
-									<span id="employer">Employer</span>
+									<span id="employer"><?php echo $employer; ?></span>
 									
 								</div>
 
@@ -394,9 +398,14 @@
 										<i class="la la-key"></i>
 
 									</div>								
-									
-
-									<button type="button" onclick="saveData();">Register Now!</button>
+									 
+                                     <?php    
+                                
+                                         $registro = new ControllerCandidato();
+                                         $registro -> registroCandidato();
+                             
+                                     ?>
+                                     <input type="submit" class="btn btn-default backColor btn-block" value="ENVIAR">
 
 								</form>
 
@@ -472,7 +481,7 @@
     });
 	function  saveData(){
 		if(valid() == true){
-		alert("entre")
+		alert("validado")
 		 $.ajax({
 		   dataType: "json",
               data: $("#fsave").serialize(), 
@@ -532,11 +541,11 @@
 		       	$("#phone").addClass("error");
 		        estado= false;
                 }	
-				if(email.trim() == emailc.trim()){
+				if(email.trim() != emailc.trim()){
 		       	$("#emailc").addClass("error");
 		        estado= false;
                 }
-				if(pass.trim() == passc.trim()){
+				if(pass.trim() != passc.trim()){
 		       	$("#passc").addClass("error");
 		        estado= false;
                 }

@@ -1,8 +1,6 @@
-<?php   include("sesion.php");
+<?php 
 		include ("head.php");
 		include ("header.php");
-		include ("scripts/conn.php");
-		$bd	= new PDO($dsnw, $userw, $passw, $optPDO);
 	?>
 	
 	<section  class="inicial">

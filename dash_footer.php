@@ -408,6 +408,8 @@
 
 <script src="js/circle-progress.min.js" type="text/javascript"></script>
 
+<script src="js/sweetalert.min.js" type="text/javascript"></script>
+
 
 
 

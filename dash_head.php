@@ -47,11 +47,11 @@
 </head>
 
 <body>
-<div class="page-loading">
+<!--<div class="page-loading">
 
 	<img src="images/horse.png" alt="" />
 
 	<span>Skip Loader</span>
 
-</div>
+</div>-->
 <div class="theme-layout" id="scrollup">

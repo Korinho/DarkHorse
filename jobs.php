@@ -1,8 +1,10 @@
-<?php 	include("valida.php"); 
+	<?php 
 		include ("dash_head.php");
 		include ("dash_header.php");
-		include ("scripts/conn.php");
-		$bd	= new PDO($dsnw, $userw, $passw, $optPDO);
+		require_once("Controller/vacancies.controller.php");
+		require_once("Model/vacancies.model.php");
+		require_once("Controller/candidate.controller.php");
+		require_once("Model/candidate.model.php");
 	?>
 	<input type="hidden" placeholder=""  name="idR" id="idR" />
 	<section>
@@ -35,32 +37,35 @@
 						 			<tbody>
 									
 										<?php											
-											$result = $bd->query("SELECT * FROM job WHERE id_user=$id_usuario");
-											foreach ($result->fetchAll(PDO::FETCH_ASSOC) as $row) {							
+											
+											$id = 1;
+											$vacantes = ctrVacantes::ctrMostrarVacantesEmpleador($id);
+											foreach ($vacantes as $key => $value) {
 											
 											?>
 										
 											<tr>
 												<td>
 													<div class="table-list-title">
-														<h3><a href="#" title=""><?php echo $row['job']; ?></a></h3>
-														<span><i class="la la-map-marker"></i><?php echo $row['country']; ?></span>
+														<h3><a href="#" title=""><?php echo $value["job"]; ?></a></h3>
+														<span><i class="la la-map-marker"></i><?php echo $value['country']; ?></span>
 													</div>
 												</td>
 												<td>
-													<span class="applied-field">0+ Applied</span>
+													<span class="applied-field"><?php 
+													$cont = ControllerCandidato::ctrContarVacantes($value["id"]);
+													echo "<a href='candidates.php?idv=",$value["id"],"'>",$cont[0]," Applied </a>"; ?></span>
 												</td>
 												<td>
-													<span><?php echo $row['date']; ?></span>
-													<!--<span>April 25, 2011</span>-->
+													<span><?php echo $value["date"]; ?></span>
 												</td>
 												<td>
-													<span class="status active"><?php echo $row['display']; ?></span>
+													<span class="status active"><?php echo ($value["display"]==1) ? "Enable":"Disabled"; ?></span>
 												</td>
 												<td>
 													<ul class="action_job">
-														<li><span>View Job</span><a href="vacancy.php?id=<?php echo $row['id']; ?>" title=""><i class="la la-eye"></i></a></li>
-														<li><span>Edit</span><a href="job.php?id=<?php echo $row['id']; ?>" title=""><i class="la la-pencil"></i></a></li>
+														<li><span>View Job</span><a href="vacancy.php?id=<?php echo $value['id'];?>" title=""><i class="la la-eye"></i></a></li>
+														<li><span>Edit</span><a href="job.php?id=<?php echo $value['id']; ?>" title=""><i class="la la-pencil"></i></a></li>
 													</ul>
 												</td>
 											</tr>

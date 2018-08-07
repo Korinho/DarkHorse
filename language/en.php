@@ -1,0 +1,25 @@
+<?php
+$cambiarIdioma="Change Language";
+$inicio="Home";
+$spanish="Spanish";
+$english="English";
+$menu_CVposting="CV Posting";
+$menu_login="Login";
+$menu_about_us="About us";
+$menu_who_are="Who we are";
+$menu_recruitment="Recruitment";
+$menu_in_management="Interim Management";
+$menu_global_place="Global Placements";
+$menu_it_consulting="It Consulting";
+$menu_sap_consulting="SAP Consulting";
+$menu_manag_consulting="Management Consulting";
+$menu_vacancies="Current Vacancies";
+$menu_recurses="Recurses";
+$menu_blog="Blog";
+$menu_industries="Industries";
+$menu_call_us="Call Us";
+$footer_follow_us="Follow Us";
+$footer_back_top="Back to Top";
+$footer_Newsletter="Newsletter Subscription";
+$Vacancies="Vacancies";
+$home="Home";

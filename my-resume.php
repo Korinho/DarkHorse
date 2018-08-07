@@ -1,4 +1,4 @@
-<?php 	include("valida.php"); 
+<?php 	/*include("valida.php"); */
 		include ("dash_head.php");
 		include ("dash_header.php");
 	?>

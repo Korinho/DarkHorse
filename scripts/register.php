@@ -7,9 +7,9 @@ setlocale(LC_TIME,"es_ES");
 try{
 								
 	$firstname=$_POST['first_name'];
-								$lastname=$_POST['last_name'];
-								$phone=$_POST['phone'];
-								$email=$_POST['email'];
+	$lastname=$_POST['last_name'];
+	$phone=$_POST['phone'];
+				 	$email=$_POST['email'];
 								$country=$_POST['country'];
 								$pass=md5($_POST['pass']);
 								$type=$_POST['type'];

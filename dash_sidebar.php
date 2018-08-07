@@ -1,4 +1,5 @@
-<aside class="col-lg-3 column border-right">
+
+<aside class="col-lg-3 column border-right" style="margin-top: 150px;">
 
 				 		<div class="widget">
 
@@ -11,9 +12,9 @@
 
 											<ul style="display: block;">
 
-												<li><a href="dashboard.php" >Dashboard</a></li>
+												<li><a href="dashboard" >Dashboard</a></li>
 
-												<li><a href="account-details.php" >Account Details</a></li>
+												<li><a href="account-details" >Account Details</a></li>
 
 												
 
@@ -21,18 +22,18 @@
 
 										</li>
 
-										<li class="inner-child">
+										<!--<li class="inner-child">
 
-											<a href="#" title=""><i class="la la-briefcase"></i><?php   if($type == 0){ echo 'Resume';}else{echo 'Manage Jobs';} ?></a>
+											<a href="#" title=""><i class="la la-briefcase"></i><?php   /*if($type == 0){ echo 'Resume';}else{echo 'Manage Jobs';}*/ ?></a>
 
 											<ul>	
-												<?php   if($type == 0){ }else{echo '<li><a href="job.php" title="">Add Job</a></li>';} ?>		
-												<li><?php   if($type == 0){ echo '<a href="my-resume.php" title="">My Resume</a>';}else{echo '<a href="jobs.php" title="">Jobs</a>';} ?></li>
+												<?php /*  if($type == 0){ }else{echo '<li><a href="job.php" title="">Add Job</a></li>';} */?>		
+												<li> asd<?php /*  if($type == 0){ echo '<a href="my-resume.php" title="">My Resume</a>';}else{echo '<a href="jobs.php" title="">Jobs</a>';} */?></li>
 												
 
 											</ul>
 
-										</li>
+										</li>-->
 
 										<li class="inner-child">
 

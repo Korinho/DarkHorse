@@ -1,3 +1,54 @@
+  <?php
+session_start();
+require 'requirelanguage.php';
+require_once("Controller/vacancies.controller.php");
+    require_once("Model/vacancies.model.php");
+    require_once("Controller/employer.controller.php");
+    require_once("Model/employer.model.php");
+?>
+ <style>
+            /* Dropdown Button */
+.dropbtn {
+    background-color: #222b38;
+    color: white;
+    font-size: 10px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-top: 31px;
+    background-color: #f1f1f1;
+    min-width: 145px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #222b38;}
+         </style>
 <div class="responsive-header">
 
 		<div class="responsive-menubar">
@@ -32,7 +83,7 @@
 
 					<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
 
-					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
+					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i><?php echo $menu_login; ?></a></li>
 
 				</ul>
 
@@ -45,12 +96,13 @@
 				<button type="submit"><i class="la la-search"></i></button>
 
 			</form>
+
 			<div class="responsivemenu">
                    <ul>
                      <li class="menu-item-has-children">
                         <a href="#" title="">Dark Horse </a>
                         <ul>
-                           <li><a href="about.php" title="">About Us</a></li>
+                           <li><a href="about.php" title=""><?php echo $menu_about_us; ?></a></li>
                            <li><a href="who-we-are.php" title="">Who we are</a></li>
                            <li><a href="recruitment.php" title="">Recruitment</a></li>
                            <li><a href="interim-management.php" title="">Interim Management</a></li>
@@ -151,47 +203,58 @@
 
 				<div class="my-profiles-sec" style="margin-top:-10px;">
 
-					<span> <?php echo $username; ?><i class="la la-bars"></i></span>
+					<span> <?php /* echo $username;*/ ?>
+  
+          <i class="la la-bars"></i></span>
 
 				</div>
-
-				
 				<nav>
 
-					 <ul>
-                        <li class="menu-item-has-children">
-                           <a href="#" title="">Dark Horse </a>							
-                           <ul>
-                              <li><a href="about.php" title="">About Us</a></li>
-                           <li><a href="who-we-are.php" title="">Who we are</a></li>
-                           <li><a href="recruitment.php" title="">Recruitment</a></li>
-                           <li><a href="interim-management.php" title="">Interim Management</a></li>
-                           </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                           <a href="#" title="">Global Placements </a>							
-                           <ul>
-                             <li><a href="it-consulting.php" title="">IT Consulting</a></li>
-							<li><a href="sap-consulting.php" title="">SAP Consulting</a></li>
-                           <li><a href="management-consulting.php" title=""> Management Consulting</a></li>
-                           </ul>
-                        </li>
-                        <li class="menu-item">							<a  href="vacancies.php" title="">Current Vacancies</a>													</li>
-                        <li class="menu-item">
-                           <a  href="resumes.php" title="">CV's & Bios</a> 
-                        </li>
-                        <li class="menu-item">
-                           <a href="#" title="">Resources </a>
+					<ul>
+            <li class="menu-item-has-children">
+                <a href="#" title="">Dark Horse </a>							
+              <ul>
+                <li><a href="about.php" title=""><?php echo $menu_about_us; ?></a></li>
+                <li><a href="who-we-are.php" title="">Who we are</a></li>
+                <li><a href="recruitment.php" title="">Recruitment</a></li>
+                <li><a href="interim-management.php" title="">Interim Management</a></li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="#" title="">Global Placements </a>							
+              <ul>
+                <li><a href="it-consulting.php" title="">IT Consulting</a></li>
+							  <li><a href="sap-consulting.php" title="">SAP Consulting</a></li>
+                <li><a href="management-consulting.php" title=""> Management Consulting</a></li>
+              </ul>
+            </li>
+            <li class="menu-item"><a  href="vacancies.php" title="">Current Vacancies</a>													</li>
+            <li class="menu-item"><a  href="resumes.php" title="">CV's & Bios</a> </li>
+            <li class="menu-item"><a href="#" title="">Resources </a>
 						   <ul>
-                              <li><a href="blog.php" title="">Blog</a></li>
-							  <li><a href="industries.php" title="">Industries</a></li>
+                  <li><a href="blog.php" title="">Blog</a></li>
+							    <li><a href="industries.php" title="">Industries</a></li>
 							 </ul> 
-                        </li>
-                     </ul>
+            </li>
+            <li class="menu-item-has-children"><a href="#" title=""><?php echo $cambiarIdioma; ?></a>
+              <ul>
+                <li><a href="changelanguage.php?language=es" title=""><?php echo $spanish; ?></a></li>
+                <li><a href="changelanguage.php?language=en" title=""><?php echo $english; ?></a></li>
+              </ul>
+            </li>
+          </ul>
 
 				</nav><!-- Menus -->
 
 			</div>
+
+
+                     
+
+
+
+
+
 
 		</div>
 
@@ -213,7 +276,7 @@
 
 						<div class="inner-header">
 
-							<h3>Welcome <?php echo $username; ?></h3>
+							<h3>Welcome <?php /*echo $username; */?></h3>
 
 						</div>
 

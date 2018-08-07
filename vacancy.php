@@ -1,9 +1,10 @@
-<?php   include("sesion.php");
+<?php   
 		include ("head.php");
 		include ("header.php");
-		include ("scripts/conn.php");
-		$id=$_GET['id'];
-		$bd	= new PDO($dsnw, $userw, $passw, $optPDO);
+		require_once("Controller/vacancies.controller.php");
+		require_once("Model/vacancies.model.php");
+		require_once("Controller/candidate.controller.php");
+		require_once("Model/candidate.model.php");
 	?>
 	
 	<section class="inicial">
@@ -49,9 +50,6 @@
 		</div>
 
 	</section>
-
-
-
 	<section>
 
 		<div class="block remove-bottom">
@@ -63,27 +61,18 @@
 						<div class="col-lg-9 column">
 
 						
-								<?php
-								
-								$result = $bd->query("SELECT * FROM job WHERE display='yes' AND id=$id");
-								foreach ($result->fetchAll(PDO::FETCH_ASSOC) as $row) {	
-								$language=$row['language'];
-								if($language == "en"){$language = "English";}
-								if($language == "fr"){$language = "French";}
-								$resume=$row['resume'];
-								$country=$row['country'];
-								$id=$row['id'];
-								$summary=$row['summary'];
-								}
+								<?php								
+								$id = $_GET["id"];
+								$row = ctrVacantes::ctrMostrarVacante($id);
 								?>
 														
 						<div class="job-single-sec style3">
 				 			<div class="job-wide-devider">
 				 				<div class="job-overview divide">
-						 			<h3 class="blue more" ><?php echo $row['job']; ?></h3>
+						 			<h3 class="blue more" ><?php echo $row["job"]; ?></h3>
 						 			<ul>
 						 				<li><i class="la la-map-marker"></i><h3>Location </h3><span><?php echo $row['country']; ?></span></li>
-						 				<li><i class="la la-star"></i><h3>Reference</h3><span><?php echo $id; ?></span></li>
+						 				<li><i class="la la-dollar"></i><h3>Salary</h3><span><?php echo $row["salary"] ?></span></li>
 						 			</ul>						 			
 						 			
 						 		</div><!-- Job Overview -->
@@ -123,12 +112,29 @@
 					 				
 					 			</div>
 								<div class="job-details" style="    padding: 30px;">
-					 				<button type="button" onclick="saveO();"><i class="la la-plus"></i> Apply for the Job!</button>
-					 				
+
+										
+									<?php 
+										$asd = null;
+										
+									 ?>
+					 				<button type="button" style="color:#fff;" onclick="<?php $asd=1; ?>"><i class="la la-plus" style="color:#fff;"></i> Apply for the Job!</button>
+					 				<?php 
+
+					 				if(isset($asd)){
+										$id_usuario = 1;
+										$item = "id_usuario";
+										$candidato = ControllerCandidato::ctrMostrarCandidatoSTR($item,$id_usuario);
+
+										$postular = new ControllerCandidato();
+										$postular->ctrPostular($candidato["id_candidato"],$row["id"]);				
+									}
+					 				 ?>
+	
 					 			</div>
 						 	 </div>
 							
-								
+							
 							 
 					 	</div>
 				 	

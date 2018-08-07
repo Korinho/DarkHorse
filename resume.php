@@ -1,9 +1,13 @@
-<?php   include("sesion.php");
+<?php  
 		include ("head.php");
 		include ("header.php");
-		include ("scripts/conn.php");
-		$id=$_GET['resume'];
-		$bd	= new PDO($dsnw, $userw, $passw, $optPDO);
+		require_once("Controller/candidate.controller.php");
+		require_once("Model/candidate.model.php");
+		require_once("Controller/usuario.controller.php");
+		require_once("Model/usuario.model.php");
+		require_once("Controller/experiencia.controller.php");
+		require_once("Model/experiencia.model.php");
+
 	?>
 	
 	<section class="inicial">
@@ -65,32 +69,53 @@
 						
 								<?php
 								
-								$result = $bd->query("SELECT * FROM resume WHERE display='yes' AND id=$id");
-								foreach ($result->fetchAll(PDO::FETCH_ASSOC) as $row) {	
-								$language=$row['language'];
-								if($language == "en"){$language = "English";}
-								if($language == "fr"){$language = "French";}
-								$resume=$row['resume'];
-								$country=$row['country'];
-								$id=$row['id'];
-								$summary=$row['summary'];
-								}
+								$item="id_candidato";
+
+								$item2="id_usuario";
+
+								$valor = $_GET["id"];
+
+								$candidato = ControllerCandidato::ctrMostrarCandidatoSTR($item,$valor);
+
+								$usuario = ctrUsuario::ctrMostrarUsuario($item2,$candidato["id_usuario"]);
+
+								$experiencia = ctrExperiencia::ctrMostrarExperiencia($candidato["id_candidato"]);
+							
 								?>
 														
 						<div class="job-single-sec style3">
 				 			<div class="job-wide-devider">
 				 				<div class="job-overview divide">
-						 			<h3 class="blue more" ><?php echo $resume; ?></h3>
+						 			<h3 class="blue more" ><?php echo $usuario["nombre"]," ", $candidato["apellido"]; ?></h3>
 						 			<ul>
-						 				<li><i class="la la-map-marker"></i><h3>Location </h3><span><?php echo $country; ?></span></li>
-						 				<li><i class="la la-star"></i><h3>Reference</h3><span><?php echo $id; ?></span></li>
-						 				<li><i class="la la-language"></i><h3>Languaje</h3><span><?php echo $language; ?></span></li>
+						 				<li><i class="la la-map-marker"></i><h3>Location </h3><span><?php echo $candidato["pais"]; ?></span></li>
+						 				<li><i class="la la-cake"></i><h3>Birthdate</h3><span><?php echo $candidato["fecha_nacimiento"]; ?></span></li>
+						 				<li><i class="la la-language"></i><h3>Languaje</h3><span><?php echo $candidato["idioma"]; ?></span></li>
 						 			</ul>						 			
 						 			
 						 		</div><!-- Job Overview -->
 					 			<div class="job-details">
-					 				<h3 class="blue"> Short description</h3>
-					 				<p><?php echo $summary; ?> </p>
+					 				<h3 class="blue">Title</h3>
+					 				<p><?php echo $candidato["titulo"]; ?> </p>
+					 				
+					 			</div>
+					 			<div class="job-details">
+					 				<h3 class="blue">Resume</h3>
+					 				<p><?php echo $candidato["resumen"]; ?> </p>
+					 				
+					 			</div>
+					 			<div class="job-details">
+					 				<h3 class="blue">Contact</h3>
+									<div class="col-lg-6 column">
+										<span>Number</span>
+										<p><?php echo $candidato["numero"]; ?> </p>
+									</div>
+									<div class="col-lg-6 column">
+										<span>Email</span>
+					 					<p><?php echo $usuario["email"]; ?> </p>
+									</div>
+					 				
+					 				
 					 				
 					 			</div>
 						 		<div class="recent-jobs">
@@ -98,23 +123,24 @@
 					 				<div class="job-list-modern">
 									
 									<?php
-								
-										$result2 = $bd->query("SELECT e.* FROM experience e, resume r WHERE e.id_user= r.id_user AND e.type=1 AND r.id=$id");
-										foreach ($result2 ->fetchAll(PDO::FETCH_ASSOC) as $row2) {	
+									
+										foreach ($experiencia as $key =>$exp) {
+											if($exp["type"]==1){									
 										
 										?>
 									 	<div class="job-listings-sec no-border">
 											<div class="">
 												<div class="job-title-sec">
-													<h3 ><a href="#" title=""><?php echo $row2['name']." (".$row2['star']." - ".$row2['end'].")"; ?></a></h3>					
+													<h3 ><a href="#" title=""><?php echo $exp['name']." (".$exp['star']." - ".$exp['end'].")"; ?></a></h3>					
 												</div>	
 												<div class="job-title-sec">
-													<p><?php echo $row2['qualification']; ?></p>					
+													<p><?php echo $exp['qualification']; ?></p>					
 												</div>													
 											</div>
 											
 										</div>
-										<?PHP } ?>
+										<?PHP }
+									} ?>
 									 </div>
 					 			</div>
 								<div class="recent-jobs">
@@ -123,22 +149,23 @@
 									
 									<?php
 								
-										$result2 = $bd->query("SELECT e.* FROM experience e, resume r WHERE e.id_user= r.id_user AND e.type=2 AND r.id=$id");
-										foreach ($result2 ->fetchAll(PDO::FETCH_ASSOC) as $row2) {	
+										foreach ($experiencia as $key =>$edu) {
+											if($edu["type"]==2){
 										
 										?>
 									 	<div class="job-listings-sec no-border">
 											<div class="">
 												<div class="job-title-sec">
-													<h3 ><a href="#" title=""><?php echo $row2['name']." (".$row2['star']." - ".$row2['end'].")"; ?></a></h3>					
+													<h3 ><a href="#" title=""><?php echo $edu['name']." (".$edu['star']." - ".$edu['end'].")"; ?></a></h3>					
 												</div>	
 												<div class="job-title-sec">
-													<p><?php echo $row2['qualification']; ?></p>					
+													<p><?php echo $edu['qualification']; ?></p>					
 												</div>													
 											</div>
 											
 										</div>
-										<?PHP } ?>
+										<?php }
+									} ?>
 									 </div>
 					 			</div>
 							 </div>
