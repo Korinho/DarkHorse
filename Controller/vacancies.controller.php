@@ -98,6 +98,15 @@
 		return $respuesta;
 
 	}
+	public function ctrMostrarVacantes1($base,$tope){
+
+		$tabla = "job";
+
+		$respuesta = ModelVacantes::mdlMostrarVacantes1($tabla,$base,$tope);
+
+		return $respuesta;
+
+	}
 
 	public function ctrMostrarVacantesRecientes(){
 

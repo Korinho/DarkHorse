@@ -186,5 +186,12 @@ class ModelVacantes{
 		$stmt->close();
 		$stmt=null;
 	}
+	static public function mdlMostrarVacantes1($tabla,$base,$tope){
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla LIMIT $base, $tope");
+		$stmt->execute();
+		return $stmt->fetchAll();
+		$stmt->close();
+		$stmt=null;
+	}
 
 }

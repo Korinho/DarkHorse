@@ -1,8 +1,6 @@
 <?php  
 		include ("head.php");
 		include ("header.php");
-		require_once("Controller/vacancies.controller.php");	
-		require_once("Model/vacancies.model.php");
 		?>
 	
 	<section  class="inicial">
@@ -50,43 +48,25 @@
 	</section>
 
 
-	<?php $vacantes = ctrVacantes::ctrMostrarVacantes(); ?>
+	<?php 
+	if(isset($_GET["pag"])){
+		$base = ($_GET["pag"] - 1)*2;
+		$tope = 2;
+	}else{
+		$base = 0;
+		$tope = 2;
+	}
+	$vac = ctrVacantes::ctrMostrarVacantes(); 
+	$vacantes = ctrVacantes::ctrMostrarVacantes1($base,$tope); ?>
 	<section>
 
 		<div class="block remove-bottom">
-
 			<div class="container">
-
-					 <div class="row">
-									 			
+					 <div class="row">									 			
 				 	<div class="col-lg-9 column">
-
 				 		<div class="filterbar">
-
-				 			<p>Total of  Employer</p>
-
-				 			<!--<div class="sortby-sec">
-
-				 				<span>Sort by</span>
-
-								<select data-placeholder="20 Per Page" class="chosen">
-
-									<option>30 Per Page</option>
-
-									<option>40 Per Page</option>
-
-									<option>50 Per Page</option>
-
-									<option>60 Per Page</option>
-
-								</select>
-
-				 			</div>-->
-
+				 			<p>Total of <?php echo count($vac); ?> Vacancies</p>
 				 		</div>
-
-				 		
-
 				 		<div class="emply-list-sec style2">
 								<?php
 									foreach ($vacantes as $key => $row) {
@@ -102,17 +82,111 @@
 							
 							<?php }
 							} ?>
-							<div class="pagination">
-								<ul>
-									<li class="prev"><a href=""><i class="la la-long-arrow-left"></i> Prev</a></li>
-									<li><a href="">1</a></li>
-									<li class="active"><a href="">2</a></li>
-									<li><a href="">3</a></li>
-									<li><span class="delimeter">...</span></li>
-									<li><a href="">14</a></li>
-									<li class="next"><a href="">Next <i class="la la-long-arrow-right"></i></a></li>
-								</ul>
-							</div><!-- Pagination -->
+
+
+							<?php 
+
+								if(count($vac) != 0){
+
+									$pagProductos = ceil(count($vac)/2);
+
+									if($pagProductos > 4){
+
+										if($_GET["pag"] == 1){
+
+											echo '<div class="pagination"><ul>';
+
+											for($i = 1; $i <= 4; $i ++){
+
+												echo '<li><a href="vacancies?pag=',$i,'">',$i,'</a></li>';
+											}
+
+										}			
+
+											else if($_GET["pag"] != $pagProductos && 
+												    $_GET["pag"] != 1 &&
+												    $_GET["pag"] <  ($pagProductos/2) &&
+												    $_GET["pag"] < ($pagProductos-3)
+												    ){
+
+													$numPagActual = $_GET["pag"];
+
+													echo '<div class="pagination"><ul>
+														  <li class="prev"><a href="vacancies?pag='.($numPagActual-1).'"><i class="la la-long-arrow-left"></i></a></li> ';
+												
+													for($i = $numPagActual; $i <= ($numPagActual+3); $i ++){
+
+														echo '<li id="item'.$i.'"><a href="vacancies?pag='.$i.'">'.$i.'</a></li>';
+
+													}
+
+													echo ' <li><span class="delimeter">...</span></li>
+														   <li id="item'.$pagProductos.'"><a href="vacancies?pag='.$pagProductos.'">'.$pagProductos.'</a></li>
+														   <li class="next"><a href="vacancies?pag='.($numPagActual+1).'"><a href="">Next <i class="la la-long-arrow-right"></i></a></li>
+
+													</ul>';
+
+											}
+											else if($_GET["pag"] != $pagProductos && 
+												    $_GET["pag"] != 1 &&
+												    $_GET["pag"] >=  ($pagProductos/2) &&
+												    $_GET["pag"] < ($pagProductos-3)
+												    ){
+
+													$numPagActual = $_GET["pag"];
+												
+													echo '<ul class="pagination">
+													   <li><a href="vacancies?pag='.($numPagActual-1).'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li> 
+													   <li id="item1"><a href="vacancies?pag=1">1</a></li>
+													   <li class="disabled"><a>...</a></li>
+													';
+												
+													for($i = $numPagActual; $i <= ($numPagActual+3); $i ++){
+
+														echo '<li id="item'.$i.'"><a href="vacancies?pag='.$i.'">'.$i.'</a></li>';
+
+													}
+
+
+													echo '  <li><a href="vacancies?pag='.($numPagActual+1).'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+														</ul>';
+											}
+											else{
+
+												$numPagActual = $_GET["pag"];
+
+												echo '<ul class="pagination">
+													   <li><a href="vacancies?pag='.($numPagActual-1).'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li> 
+													   <li id="item1"><a href="vacancies?pag=1">1</a></li>
+													   <li class="disabled"><a>...</a></li>
+													';
+												
+												for($i = ($pagProductos-3); $i <= $pagProductos; $i ++){
+
+													echo '<li id="item'.$i.'"><a href="vacancies?pag='.$i.'">'.$i.'</a></li>';
+
+												}
+
+												echo ' </ul>';
+
+											}
+
+
+								}else{
+										echo '<div class="pagination"><ul>';
+						
+										for($i = 1; $i <= $pagProductos; $i ++){
+
+											echo '<li><a href="vacancies?pag=',$i,'">',$i,'</a></li>';
+
+										}
+
+										echo '</ul></div>';
+									}
+
+								}
+
+							 ?>
 				 		</div>
 					</div>
 					<?php include("sidebar.php"); ?>

@@ -2,6 +2,8 @@
 		include ("head.php");
 		include ("header.php");
 
+
+
 		$candidatos = ControllerCandidato::ctrMostrarCandidatos();
 	?>
 	
@@ -60,7 +62,7 @@
 
 				 		<div class="filterbar">
 
-				 			<p>Total of 145 Employer</p>
+				 			<p>Total of <?php echo count($candidatos); ?> Employer</p>
 
 				 			<!--<div class="sortby-sec">
 
