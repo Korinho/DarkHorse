@@ -35,26 +35,24 @@
 						 					<td>Action</td>
 						 				</tr>
 						 			</thead>
-						 			<tbody>
-									
-										<?php											
-											
+						 			<tbody>									
+										<?php												
 											if(isset($_GET["idv"])){
 											$pos = ctrVacantes::ctrMostrarPostulados($_GET["idv"]);
+											if(count($pos)==0){
 											$item="id_candidato";
 											$item2="id_usuario";
-											$valor = $pos["id_vacante"];
+											$valor = $pos["id_candidato"];
 											$postulados = ControllerCandidato::ctrMostrarCandidatoINT($item,$valor);
 											foreach ($postulados as $key => $value) {
 												$usuario = ctrUsuario::ctrMostrarUsuario($item2,$value["id_usuario"]);
-											?>
-										
+											?>										
 											<tr>
 												<td>
 													<div class="table-list-title">
 														<h3><a href="#" title=""><?php echo $usuario["nombre"]," ",$value["apellido"] ?></a></h3>
 														<span><i class="la la-map-marker"></i><?php echo $value["pais"]; ?></span>
-													</div>
+													</div>	
 												</td>
 												<td>
 													<span class="applied-field"><?php 
@@ -72,6 +70,11 @@
 											</tr>
 						 				
 											<?php } 
+										}else{
+											echo '<tr><td><span>No hay candidatos</span></td></tr>';
+										}
+									}else{
+											echo '<tr><td><span>No hay candidatos</span></td></tr>';
 										}?>									
 						 			</tbody>
 						 		</table>

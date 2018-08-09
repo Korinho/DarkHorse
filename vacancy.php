@@ -113,23 +113,20 @@
 					 			</div>
 								<div class="job-details" style="    padding: 30px;">
 
-										
-									<?php 
-										$asd = null;
-										
-									 ?>
-					 				<button type="button" style="color:#fff;" onclick="<?php $asd=1; ?>"><i class="la la-plus" style="color:#fff;"></i> Apply for the Job!</button>
-					 				<?php 
+										<form method="POST" action="">
+											<input type="hidden" name="vacante" Value="<?php echo $row['id'] ?>">
 
-					 				if(isset($asd)){
-										$id_usuario = 1;
-										$item = "id_usuario";
-										$candidato = ControllerCandidato::ctrMostrarCandidatoSTR($item,$id_usuario);
+											<input type="hidden" name="candidato" value="1">
+												
+												<?php $postular = new ControllerCandidato();
+													  $postular->ctrPostular();
+												 ?>
 
-										$postular = new ControllerCandidato();
-										$postular->ctrPostular($candidato["id_candidato"],$row["id"]);				
-									}
-					 				 ?>
+											<input type="submit" value="Apply for the Job!">
+										</form>
+									
+					 				<!--<button type="button" style="color:#fff;"><i class="la la-plus" style="color:#fff;"></i> Apply for the Job!</button>-->
+					 				
 	
 					 			</div>
 						 	 </div>

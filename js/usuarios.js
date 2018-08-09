@@ -20,7 +20,7 @@ $("input").focus(function(){
 })
 
 /*=============================================
-VALIDAR EMAIL REPETIDO
+VALIDAR postulacion repetida
 =============================================*/
 
 var validarEmailRepetido = false;

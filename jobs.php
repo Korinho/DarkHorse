@@ -54,7 +54,8 @@
 												<td>
 													<span class="applied-field"><?php 
 													$cont = ControllerCandidato::ctrContarVacantes($value["id"]);
-													echo "<a href='candidates.php?idv=",$value["id"],"'>",$cont[0]," Applied </a>"; ?></span>
+													echo "<a href='candidates.php?idv=",$value["id"],"'>",count($cont)," Applied </a>"; ?></span>
+													<?php $cont = null; ?>
 												</td>
 												<td>
 													<span><?php echo $value["date"]; ?></span>

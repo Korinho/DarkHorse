@@ -19,7 +19,6 @@
 
 								<h3> <?php echo $vacancies; ?></h3>
 
-
 							</div>
 
 							<div class="page-breacrumbs">
@@ -27,8 +26,6 @@
 								<ul class="breadcrumbs">
 
 									<li><a href="." title=""><?php echo $home; ?></a></li>
-
-									
 									<li><a href="#" title=""><?php echo $vacancies; ?></a></li>
 
 								</ul>

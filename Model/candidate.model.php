@@ -117,11 +117,11 @@ class ModelCandidato{
 
 	static public function mdlContarVacantes($tabla,$id){
 
-		$stmt = Conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE id_vacante = $id");
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_vacante = $id");
 
 		$stmt->execute();
 
-		return $stmt->fetch();
+		return $stmt->fetchAll();
 
 		$stmt->close();
 
@@ -142,6 +142,19 @@ class ModelCandidato{
 
 		$stmt=null;
 	}
+	static public function mdlContarVacantesRepetidos($tabla,$candidato,$vacante){
+
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id_vacante = $vacante AND id_candidato = $candidato");
+
+		$stmt->execute();
+
+		return $stmt->fetch();
+
+		$stmt->close();
+
+		$stmt=null;
+	}
+
 
 	static public function mdlMostrarCandidatos($tabla){
 

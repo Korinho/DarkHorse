@@ -802,40 +802,66 @@ class ControllerCandidato{
 
 	}
 
-	
+	static public function ctrPostular(){
 
-	/*=============================================
-	AGREGAR A LISTA DE DESEOS - postularce
-	=============================================*/
+		if(isset($_POST["candidato"])){
 
-	static public function ctrPostular($candidato,$vacante){
+		$candidato = $_POST["candidato"];
+		$vacante = $_POST["vacante"];
 
 		$tabla = "vacante_candidato";
 
-		$respuesta = ModelCandidato::MdlPostular($tabla,$candidato,$vacante);
+		$respuesta1 = ModelCandidato::mdlContarVacantesRepetidos($tabla,$candidato,$vacante);
 
-		if($respuesta == "ok"){
-			echo '<script> 
+		if(!$respuesta1){
 
-						swal({
-							  title: "¡ERROR!",
-							  text: "¡El correo electrónico, ya está registrado en el sistema con un método diferente a Google!",
-							  type:"error",
-							  confirmButtonText: "Cerrar",
-							  closeOnConfirm: false
-							},
+				$respuesta = ModelCandidato::MdlPostular($tabla,$candidato,$vacante);
 
-							function(isConfirm){
+				if($respuesta == "ok"){
+					echo '<script> 
 
-								if(isConfirm){
-									history.back();
-								}
-						});
+								swal({
+									  title: "¡ERROR!",
+									  text: "¡El correo electrónico, ya está registrado en el sistema con un método diferente a Google!",
+									  type:"error",
+									  confirmButtonText: "Cerrar",
+									  closeOnConfirm: false
+									},
 
-				</script>';
+									function(isConfirm){
 
+										if(isConfirm){
+											history.back();
+										}
+								});
+
+						</script>';
+
+				}else{
+					echo '<script> 
+
+								swal({
+									  title: "¡ERROR!",
+									  text: "¡El correo electrónico, ya está registrado en el sistema con un método diferente a Google!",
+									  type:"error",
+									  confirmButtonText: "Cerrar",
+									  closeOnConfirm: false
+									},
+
+									function(isConfirm){
+
+										if(isConfirm){
+											history.back();
+										}
+								});
+
+						</script>';
+				}
+			}else{
+
+			echo '<span>ya estas postulado</span>';
 		}
-
+		}
 	}
 
 	/*=============================================
