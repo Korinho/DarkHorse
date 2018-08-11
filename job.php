@@ -1,9 +1,6 @@
 <?php 	
 include ("dash_head.php");
 include ("dash_header.php");
-require_once("Controller/vacancies.controller.php");
-require_once("Model/vacancies.model.php");
-require_once("Model/route.php");
 ?>
 <?php if(!isset($_GET["id"])){ ?>
 <input type="hidden" placeholder=""  name="idR" id="idR" />

@@ -1,8 +1,7 @@
-<?php   include("sesion.php");
+<?php 
 		include ("head.php");
 		include ("header.php");
-		include ("scripts/conn.php");
-		$bd	= new PDO($dsnw, $userw, $passw, $optPDO);
+		$result = ctrBlog::ctrMostrarBlog();
 	?>
 	
 	<section  class="inicial">
@@ -20,7 +19,6 @@
 							<div class="inner-title2">
 
 								<h3 >Blog</h3>
-
 
 							</div>
 
@@ -48,9 +46,6 @@
 		</div>
 
 	</section>
-
-
-
 	<section>
 
 		<div class="block remove-bottom">
@@ -61,21 +56,18 @@
 					<div class="col-lg-9 column">
 				 		<div class="bloglist-sec">
 							<?php
-								
-								$result = $bd->query("SELECT * FROM nota WHERE estado=1 order by id asc");
-								foreach ($result->fetchAll(PDO::FETCH_ASSOC) as $row) {	
-								
+								foreach ($result as $key => $blog) {							
 								?>
 				 			<div class="blogpost style2">
-				 				<div class="blog-posthumb"> <a href="article.php?id=<?php echo $row['id']; ?>" title=""><img src="panel/parsers/query/archivos/<?php echo $row['imagen']; ?>" alt="" /></a> </div>
+				 				<div class="blog-posthumb"> <a href="article.php?id=<?php echo $blog['id_blog']; ?>" title=""><img src="panel/parsers/query/archivos/<?php echo $blog['imagen']; ?>" alt="" /></a> </div>
 				 				<div class="blog-postdetail">
-				 					<ul class="post-metas"><li><a href="#" title=""><i class="la la-calendar-o"></i><?php echo $row['fecha']; ?></a></li></ul>
-				 					<h3><a href="article.php?id=<?php echo $row['id']; ?>" title=""><?php echo $row['titulo']; ?></a></h3>
-				 					<p><?php echo $row['descripcion']; ?></p>
-				 					<a class="bbutton" href="article.php?id=<?php echo $row['id']; ?>" title="">Read More <i class="la la-long-arrow-right"></i></a>
+				 					<ul class="post-metas"><li><a href="#" title=""><i class="la la-calendar-o"></i><?php echo $blog['fecha']; ?></a></li></ul>
+				 					<h3><a href="article.php?id=<?php echo $blog['id_blog']; ?>" title=""><?php echo $blog['titulo']; ?></a></h3>
+				 					<p><?php echo $blog['desc_corta']; ?></p>
+				 					<a class="bbutton" href="article.php?id=<?php echo $blog['id_blog']; ?>" title="">Read More <i class="la la-long-arrow-right"></i></a>
 				 				</div>
 				 			</div><!-- Blog Post -->
-				 			<?php $language="";   }  ?>
+				 			<?php  }  ?>
 							
 				 			<div class="pagination">
 								<ul>

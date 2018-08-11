@@ -6,13 +6,20 @@ require_once("Controller/usuario.controller.php");
 require_once("Controller/employer.controller.php");
 require_once("Controller/experiencia.controller.php");
 require_once("Controller/vacancies.controller.php");
+require_once("Controller/blog.controller.php");
+require_once("Controller/comentario.controller.php");
+require_once("Controller/soporte.controller.php");
 
 require_once("Model/candidate.model.php");
 require_once("Model/usuario.model.php");
 require_once("Model/employer.model.php");
 require_once("Model/experiencia.model.php");
 require_once("Model/vacancies.model.php");
+require_once("Model/blog.model.php");
+require_once("Model/comentario.model.php");
+require_once("Model/soporte.model.php");
 
+require_once("Model/route.php");
 ?>
   <div class="responsive-header four">
             <div class="responsive-menubar">

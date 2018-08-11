@@ -1,11 +1,6 @@
 <?php 
 		include ("head.php");
-		echo '<link rel="stylesheet" href="js/tel/css/intlTelInput.css">';
 		include ("header.php");
-        require_once "Controller/candidate.controller.php";
-        require_once "Controller/employer.controller.php";
-        require_once "Model/candidate.model.php";
-        require_once "Model/employer.model.php";
 	?>
 	<style>
 	.account-popup > form .cfield input.error {

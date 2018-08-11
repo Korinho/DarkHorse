@@ -7,5 +7,10 @@ class Ruta{
 		return "http://localhost/korioto/darkhorserecruitment.com/";
 	
 	}
+	public function ctrRutaServidor(){
+
+		return "http://localhost/korioto/darkhorserecruitment.com/Admin";
+	
+	}
 
 }

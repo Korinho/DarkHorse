@@ -1,10 +1,6 @@
 <?php   
 		include ("head.php");
 		include ("header.php");
-		require_once("Controller/vacancies.controller.php");
-		require_once("Model/vacancies.model.php");
-		require_once("Controller/candidate.controller.php");
-		require_once("Model/candidate.model.php");
 	?>
 	
 	<section class="inicial">

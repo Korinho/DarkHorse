@@ -1,12 +1,6 @@
 <?php 
 		include ("dash_head.php");
 		include ("dash_header.php");
-		require_once("Controller/vacancies.controller.php");
-		require_once("Model/vacancies.model.php");
-		require_once("Controller/candidate.controller.php");
-		require_once("Model/candidate.model.php");
-		require_once("Controller/usuario.controller.php");
-		require_once("Model/usuario.model.php");
 	?>
 	<input type="hidden" placeholder=""  name="idR" id="idR" />
 	<section>

@@ -105,12 +105,7 @@
 							
 							<?php }
 							} ?>
-									
-							
-				 			
-
-				 		
-				 			<div class="pagination">
+							<div class="pagination">
 
 								<ul>
 

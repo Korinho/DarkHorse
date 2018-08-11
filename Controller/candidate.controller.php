@@ -804,7 +804,7 @@ class ControllerCandidato{
 
 	static public function ctrPostular(){
 
-		if(isset($_POST["candidato"])){
+		if(isset($_POST["candidato"]) && isset($_POST["vacante"])){
 
 		$candidato = $_POST["candidato"];
 		$vacante = $_POST["vacante"];

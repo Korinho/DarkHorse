@@ -22,7 +22,6 @@
 
 								<h3 >Article</h3>
 
-
 							</div>
 
 							<div class="page-breacrumbs">

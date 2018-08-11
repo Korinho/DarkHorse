@@ -1,10 +1,33 @@
   <?php
 session_start();
 require 'requirelanguage.php';
+require_once("Controller/candidate.controller.php");
+require_once("Controller/usuario.controller.php");
+require_once("Controller/employer.controller.php");
+require_once("Controller/experiencia.controller.php");
 require_once("Controller/vacancies.controller.php");
-    require_once("Model/vacancies.model.php");
-    require_once("Controller/employer.controller.php");
-    require_once("Model/employer.model.php");
+
+require_once("Model/candidate.model.php");
+require_once("Model/usuario.model.php");
+require_once("Model/employer.model.php");
+require_once("Model/experiencia.model.php");
+require_once("Model/vacancies.model.php");
+
+require_once("Model/route.php");
+
+$url = Ruta::ctrRuta();
+
+if(!isset($_SESSION["validarSesion"])){
+
+  echo '<script>
+  
+    window.location = "'.$url.'";
+
+  </script>';
+
+  exit();
+
+}
 ?>
  <style>
             /* Dropdown Button */

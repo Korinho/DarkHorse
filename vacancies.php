@@ -97,11 +97,16 @@
 
 												echo '<li><a href="vacancies?pag=',$i,'">',$i,'</a></li>';
 											}
+												echo ' <li class="disabled"><a>...</a></li>
+												   <li id="item'.$pagProductos.'"><a href="vacancies?pag='.$pagProductos.'">'.$pagProductos.'</a></li>
+												   <li><a href="vacancies?pag=2"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+
+											</ul>';
 
 										}			
 
 											else if($_GET["pag"] != $pagProductos && 
-												    $_GET["pag"] != 1 &&
+												    $_GET["pag"] != 1 &&	
 												    $_GET["pag"] <  ($pagProductos/2) &&
 												    $_GET["pag"] < ($pagProductos-3)
 												    ){
@@ -133,7 +138,7 @@
 													$numPagActual = $_GET["pag"];
 												
 													echo '<ul class="pagination">
-													   <li><a href="vacancies?pag='.($numPagActual-1).'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li> 
+													   <li class="prev"><a href="vacancies?pag='.($numPagActual-1).'"><i class="la la-long-arrow-left"></i></a></li> 
 													   <li id="item1"><a href="vacancies?pag=1">1</a></li>
 													   <li class="disabled"><a>...</a></li>
 													';
@@ -145,7 +150,7 @@
 													}
 
 
-													echo '  <li><a href="vacancies?pag='.($numPagActual+1).'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+													echo '  <li class="next"><a href="vacancies?pag='.($numPagActual+1).'"><i class="la la-long-arrow-right"></i></a></li>
 														</ul>';
 											}
 											else{
@@ -170,13 +175,22 @@
 
 
 								}else{
+										$numPagActual = $_GET["pag"];
+
 										echo '<div class="pagination"><ul>';
+										if(($numPagActual - $pagProductos) == 0){
+											echo '<li class="prev"><a href="vacancies?pag='.($numPagActual-1).'"><i class="la la-long-arrow-left"></i></a></li> ';
+										}
+									
 						
 										for($i = 1; $i <= $pagProductos; $i ++){
 
 											echo '<li><a href="vacancies?pag=',$i,'">',$i,'</a></li>';
 
 										}
+										if($numPagActual != $pagProductos){
+											echo '<li class="next"><a href="vacancies?pag='.($numPagActual+1).'"><i class="la la-long-arrow-right"></i></a></li>';
+										}								
 
 										echo '</ul></div>';
 									}
