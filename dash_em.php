@@ -1,6 +1,6 @@
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<h3>Dashboard</h3>
+					 			<h3><?php echo $panel ?></h3>
 					 			<!--<div class="extra-job-info">
 						 			<span><i class="la la-clock-o"></i><strong>9</strong> Job Posted</span>
 						 			<span><i class="la la-file-text"></i><strong>20</strong> Application</span>
@@ -13,7 +13,7 @@
 											<div class="p-category">
 												<a href="jobs" title="">
 													<i class="la la-briefcase"></i>
-													<span>Manage Jobs</span>
+													<span> <?php echo $padmin ?></span>
 												</a>
 											</div>
 										</div>
@@ -21,14 +21,14 @@
 											<div class="p-category">
 												<a href="job" title="">
 													<i class="la la-briefcase"></i>
-													<span>Add Vacancies</span>
+													<span ><?php echo $pagvac ?></span>
 												</a>
 											</div>
 										</div>
 										<div class="col-lg-4 col-md-4 col-sm-12">
 											<div class="p-category follow-companies-popup">
 												<a href="account-details" title="">	
-													<i class="la la-file"></i><span>My Profile</span><p>View Profile</p>												
+													<i class="la la-file"></i><span><?php echo $pperfil ?></span><p> <?php echo $pverperfil ?></p>												
 												</a>
 											</div>
 										</div>

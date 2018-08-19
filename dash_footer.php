@@ -8,23 +8,23 @@
                               <div class="logo">
                                  <a href="#" title=""><img src="images/horseb.png" alt="" /></a>
                               </div>
-                              <span>Want to know more? Contact Us</span>
-                              <span>America: +1-305-600-4408</span>								<span>EMEA: +33 970 467 059</span>								<span>Asia-Pacific: +61 3 9018 5789</span>
+                              <span><?php echo $finfo ?></span>
+                              <span> <?php echo $ftel ?></span>								<span><?php echo $ftel1 ?></span>								<span><?php echo $ftel2 ?></span>
                            </div>
                            <!-- About Widget -->
                         </div>
                      </div>
                      <div class="col-lg-2 column">
                         <div class="widget">
-                           <h3 class="footer-title">About Us</h3>
+                           <h3 class="footer-title"> <?php echo $menu_about_us ?></h3>
                            <div class="link_widgets3 nolines">
                               <div class="row">
                                  <div class="col-lg-12">
-                                    <a href="#" title="">About Us </a>
-                                    <a href="#" title="">Who we are</a>
-                                    <a href="#" title="">Global Placement </a>
-                                    <a href="#" title="">Recruitment </a>
-                                    <a href="#" title="">Interim Management</a>
+                                    <a href="#" title="" ><?php echo $menu_about_us ?></a>
+                                    <a href="#" title=""><?php echo $menu_who_are ?></a>
+                                    <a href="#" title=""><?php echo $menu_global_place ?></a>
+                                    <a href="#" title=""> <?php echo $menu_recruitment ?></a>
+                                    <a href="#" title=""><?php echo $menu_in_management ?></a>
                                  </div>
                               </div>
                            </div>
@@ -32,7 +32,7 @@
                      </div>
                      <div class="col-lg-2 column">
                         <div class="widget">
-                           <h3 class="footer-title">Follow Us</h3>
+                           <h3 class="footer-title"><?php echo $siguenos ?></h3>
                            <div class="link_widgets3 nolines">
                               <div class="row">
                                  <div class="col-lg-12">
@@ -46,11 +46,11 @@
                      </div>
                      <div class="col-lg-5 column">
                         <div class="widget">
-                           <h3 class="footer-title">Newsletter Subscription</h3>
+                           <h3 class="footer-title"><?php echo $boletin ?></h3>
                            <div class="subscribe_widget">
                               <p></p>
                               <form>
-                                 <input type="text" placeholder="Enter Valid Email Address" />
+                                 <input type="text" placeholder="<?php echo $correovalido ?>" />
                                  <button type="submit"><i class="la la-paper-plane"></i></button>
                               </form>
                            </div>
@@ -62,7 +62,7 @@
             <div class="bottom-line style3">
                <div class="container">
                   <span>© 2018 Dark Horse Consulting</span>
-                  <a href="#scrollup" class="back-top" title="">Back to top <i class="la la-long-arrow-up"></i></a>
+                  <a href="#scrollup" class="back-top" title="" ><?php echo $footer_back_top?> <i class="la la-long-arrow-up"></i></a>
                </div>
             </div>
          </footer>
@@ -98,13 +98,13 @@
 
 			<li class="inner-child active">
 
-				<a href="#" title=""><i class="la la-file-text"></i>My account</a>
+				<a href="#" title=""><i class="la la-file-text"></i ><?php echo $micuenta ?></a>
 
 				<ul style="display: block;">
 
-					<li><a href="#" title="">Dashboard</a></li>
+					<li><a href="#" title=""><?php echo $panel ?></a></li>
 
-					<li><a href="#" title="">Account Details</a></li>
+					<li><a href="#" title="" > <?php echo $detallecuenta ?></a></li>
 
 					
 
@@ -127,11 +127,11 @@
 
 			<li class="inner-child">
 
-				<a href="#" title=""><i class="la la-briefcase"></i> Jobs</a>
+				<a href="#" title=""><i class="la la-briefcase" ></i<?php echo $empleos?>> Jobs</a>
 
 				<ul>
 
-					<li><a href="#" title="">My Applied Jobs</a></li>
+					<li><a href="#" title="" </i ><?php echo $empleosaplicados ?></a></li>
 
 					
 
@@ -141,13 +141,13 @@
 
 			<li class="inner-child">
 
-				<a href="#" title=""><i class="la la-paper-plane"></i>Troubleshooting</a>
+				<a href="#" title=""><i class="la la-paper-plane"></i> <?php echo $problemas?></a>
 
 				<ul>
 
-					<li><a href="#" title="">Report a problem</a></li>
+					<li><a href="#" title="" ><?php echo $reportarproblema ?></a></li>
 
-					<li><a href="#" title="">My Submitted Problems</a></li>
+					<li><a href="#" title="" ><?php echo $problemareportado ?></a></li>
 
 
 				</ul>
@@ -156,7 +156,7 @@
 
 		
 
-			<li><a href="logout.php" title=""><i class="la la-unlink"></i>Logout</a></li>
+			<li><a href="logout.php" title=""><i class="la la-unlink"></i  ><?php echo $desconectarse ?></a></li>
 
 		</ul>
 
@@ -165,7 +165,7 @@
 </div><!-- Profile Sidebar -->
 
 
-
+<!--ojo esto no lo traduje-->
 <div class="view-resumesec">
 
 	<div class="view-resumes">
@@ -249,7 +249,7 @@
 	</div>
 
 </div>
-
+<!--aqui ya traduzco de nuevo sin traducir ejemplos-->
 
 
 <div class="follow-companiesec">
@@ -258,7 +258,7 @@
 
 		<span class="close-follow-company"><i class="la la-close"></i></span>
 
-		<h3>Follow Companies.</h3>
+		<h3 ><?php echo $seguir ?></h3>
 
 		<ul id="scrollbar">
 
@@ -276,7 +276,7 @@
 
 					</div>
 
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
+					<a href="#" title="" class="go-unfollow"><?php echo $dejarseguir ?></a>
 
 				</div><!-- Job -->	
 
@@ -296,7 +296,7 @@
 
 					</div>
 
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
+					<a href="#" title="" class="go-unfollow"><?php echo $dejarseguir ?></a>
 
 				</div><!-- Job -->	
 
@@ -316,7 +316,7 @@
 
 					</div>
 
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
+					<a href="#" title="" class="go-unfollow"><?php echo $dejarseguir ?></a>
 
 				</div><!-- Job -->	
 
@@ -336,7 +336,7 @@
 
 					</div>
 
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
+					<a href="#" title="" class="go-unfollow"><?php echo $dejarseguir ?></a>
 
 				</div><!-- Job -->	
 
@@ -356,7 +356,7 @@
 
 					</div>
 
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
+					<a href="#" title="" class="go-unfollow"><?php echo $dejarseguir ?></a>
 
 				</div><!-- Job -->	
 
@@ -376,7 +376,7 @@
 
 					</div>
 
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
+					<a href="#" title="" class="go-unfollow"><?php echo $dejarseguir ?></a>
 
 				</div><!-- Job -->	
 

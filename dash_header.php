@@ -100,11 +100,11 @@ if(!isset($_SESSION["validarSesion"])){
 
 			<div class="btn-extars">
 
-				<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+				<a href="#" title="" class="post-job-btn"><i class="la la-plus">><?php echo $publicarempleo ?></a>
 
 				<ul class="account-btns">
 
-					<li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
+					<li class="signup-popup"><a title=""><i class="la la-key"></i ><?php echo $regristrarse ?></a></li>
 
 					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i><?php echo $menu_login; ?></a></li>
 
@@ -114,7 +114,7 @@ if(!isset($_SESSION["validarSesion"])){
 
 			<form class="res-search">
 
-				<input type="text" placeholder="Job title, keywords or company name" />
+				<input type="text" placeholder="<?php echo $phbusqueda ?>" />
 
 				<button type="submit"><i class="la la-search"></i></button>
 
@@ -126,26 +126,26 @@ if(!isset($_SESSION["validarSesion"])){
                         <a href="#" title="">Dark Horse </a>
                         <ul>
                            <li><a href="about.php" title=""><?php echo $menu_about_us; ?></a></li>
-                           <li><a href="who-we-are.php" title="">Who we are</a></li>
-                           <li><a href="recruitment.php" title="">Recruitment</a></li>
-                           <li><a href="interim-management.php" title="">Interim Management</a></li>
+                           <li><a href="who-we-are.php" title=""><?php echo $menu_who_are?></a></li>
+                           <li><a href="recruitment.php" title=""><?php echo $menu_recruitment ?></a></li>
+                           <li><a href="interim-management.php" title=""><?php echo $menu_in_managment ?></a></li>
                         </ul>
                      </li>
                      <li class="menu-item-has-children">
-                        <a href="#" title="">Global Placements </a>
+                        <a href="#" title=""><?php echo $menu_global_place ?> </a>
                         <ul>
-							<li><a href="it-consulting.php" title="">IT Consulting</a></li>
-							<li><a href="sap-consulting.php" title="">SAP Consulting</a></li>
-                           <li><a href="management-consulting.php" title=""> Management Consulting</a></li>
+							<li><a href="it-consulting.php" title=""><?php echo $menu_it_consulting ?></a></li>
+							<li><a href="sap-consulting.php" title=""><?php echo $menu_sap_consulting ?></a></li>
+                           <li><a href="management-consulting.php" title=""><?php echo $menu_manag_consulting ?></a></li>
                            
                           
                            <!--<li><a href="employer_single1.html" title="">Employer Single 1</a></li>
                               <li><a href="employer_single2.html" title="">Employer Single 2</a></li>-->
                         </ul>
                      </li>
-                     <li class="menu-item">							<a href="vacancies.php" title="">Current Vacancies</a>						</li>
+                     <li class="menu-item">							<a href="vacancies.php" title=""><?php echo $Vacancies ?></a>						</li>
                      <li class="menu-item">
-                        <a href="resumes.php" title="">CV's & Bios</a>
+                        <a href="resumes.php" title=""><?php echo $cvbios ?></a>
                         <!--<ul>
                            <li><a href="candidates_list.html" title="">Candidates List 1</a></li>
                            <li><a href="candidates_list2.html" title="">Candidates List 2</a></li>
@@ -169,10 +169,10 @@ if(!isset($_SESSION["validarSesion"])){
                            </ul>-->
                      </li>
                      <li class="menu-item">
-                        <a href="#" title="">Resources </a>
+                        <a href="#" title="" ><?php echo $menu_resourses ?></a>
                         <ul>
-                           <li><a href="blog.php"> Blog </a></li>
-						   <li><a href="industries.php" title="">Industries</a></li>
+                           <li><a href="blog.php" ><?php echo  ?></a></li>
+						   <li><a href="industries.php" title="" ><?php echo $cvbios ?></a></li>
                            <!--<li><a href="blog_list2.html">Blog List 2</a></li>
                            <li><a href="blog_list3.html">Blog List 3</a></li>
                            <li><a href="blog_single.html">Blog Single</a></li>-->
@@ -238,25 +238,25 @@ if(!isset($_SESSION["validarSesion"])){
                 <a href="#" title="">Dark Horse </a>							
               <ul>
                 <li><a href="about.php" title=""><?php echo $menu_about_us; ?></a></li>
-                <li><a href="who-we-are.php" title="">Who we are</a></li>
-                <li><a href="recruitment.php" title="">Recruitment</a></li>
-                <li><a href="interim-management.php" title="">Interim Management</a></li>
+                <li><a href="who-we-are.php" title=""><?php echo $menu_who_are ?></a></li>
+                <li><a href="recruitment.php" title=""><?php echo $menu_who_are ?></a></li>
+                <li><a href="interim-management.php" title=""><?php echo $menu_in_management ?></a></li>
               </ul>
             </li>
             <li class="menu-item-has-children">
-              <a href="#" title="">Global Placements </a>							
+              <a href="#" title=""><?php echo $menu_global_place ?></a>							
               <ul>
-                <li><a href="it-consulting.php" title="">IT Consulting</a></li>
-							  <li><a href="sap-consulting.php" title="">SAP Consulting</a></li>
-                <li><a href="management-consulting.php" title=""> Management Consulting</a></li>
+                <li><a href="it-consulting.php" title=""><?php echo $menu_it_consulting ?></a></li>
+							  <li><a href="sap-consulting.php" title=""><?php echo $menu_sap_consulting ?></a></li>
+                <li><a href="management-consulting.php" title=""><?php echo $menu_manag_consulting ?></a></li>
               </ul>
             </li>
-            <li class="menu-item"><a  href="vacancies.php" title="">Current Vacancies</a>													</li>
-            <li class="menu-item"><a  href="resumes.php" title="">CV's & Bios</a> </li>
-            <li class="menu-item"><a href="#" title="">Resources </a>
+            <li class="menu-item"><a  href="vacancies.php" title=""><?php echo $menu_vacancies?></a>													</li>
+            <li class="menu-item"><a  href="resumes.php" title=""><?php echo $cvbios ?></a> </li>
+            <li class="menu-item"><a href="#" title=""><?php echo $menu_resourses ?></a>
 						   <ul>
-                  <li><a href="blog.php" title="">Blog</a></li>
-							    <li><a href="industries.php" title="">Industries</a></li>
+                  <li><a href="blog.php" title=""><?php echo $menu_blog ?></a></li>
+							    <li><a href="industries.php" title=""><?php echo $menu_industries ?></a></li>
 							 </ul> 
             </li>
             <li class="menu-item-has-children"><a href="#" title=""><?php echo $cambiarIdioma; ?></a>
@@ -299,7 +299,7 @@ if(!isset($_SESSION["validarSesion"])){
 
 						<div class="inner-header">
 
-							<h3>Welcome <?php /*echo $username; */?></h3>
+							<h3 ><?php echo $bienvenido?> <?php /*echo $username; */?></h3>
 
 						</div>
 

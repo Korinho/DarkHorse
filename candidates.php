@@ -14,7 +14,7 @@
 					 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<h3>Manage Candidates</h3>
+					 			<h3><?php echo $admcandidatos ?></h3>
 					 			<!--<div class="extra-job-info">
 						 			<span><i class="la la-clock-o"></i><strong>9</strong> Job Posted</span>
 						 			<span><i class="la la-file-text"></i><strong>20</strong> Application</span>
@@ -23,10 +23,10 @@
 						 		<table>
 						 			<thead>
 						 				<tr>
-						 					<td>Name</td>
-						 					<td>Tittle</td>
-						 					<td>Puesto</td>
-						 					<td>Action</td>
+						 					<td><?php echo $cnombre ?></td>
+						 					<td><?php echo $ctitulo ?></td>
+						 					<td><?php echo $cpuesto ?></td>
+						 					<td><?php echo $caccion ?></td>
 						 				</tr>
 						 			</thead>
 						 			<tbody>									
@@ -58,17 +58,17 @@
 												</td>
 												<td>
 													<ul class="action_job">
-														<li><span>View Candidate</span><a href="resume.php?id=<?php echo $value['id_candidato'];?>" title=""><i class="la la-eye"></i></a></li>
+														<li><span><?php echo $cver ?></span><a href="resume.php?id=<?php echo $value['id_candidato'];?>" title=""><i class="la la-eye"></i></a></li>
 													</ul>
 												</td>
 											</tr>
 						 				
 											<?php } 
 										}else{
-											echo '<tr><td><span>No hay candidatos</span></td></tr>';
+											echo '<tr><td><span <?php echo $cnocandi ?>>No hay candidatos</span></td></tr>';
 										}
 									}else{
-											echo '<tr><td><span>No hay candidatos</span></td></tr>';
+											echo '<tr><td><span <?php echo $cnocandi ?>>No hay candidatos</span></td></tr>';
 										}?>									
 						 			</tbody>
 						 		</table>

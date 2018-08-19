@@ -19,18 +19,18 @@
 
 					 		<div class="profile-title">
 
-					 			<h3>Account Details</h3>
+					 			<h3><?php echo $detallesdecuenta ?></h3>
 
 					 		</div>
 
 					 		<div class="profile-form-edit">
 							<form id="fupdate">
-								<span class="blue2" >Account Information</span>
+								<span class="blue2"><?php echo $informacioncuenta ?></span>
 								<div class="row">
 
 					 					<div class="col-lg-3">
 
-					 						<span class="pf-title">Account Email</span>
+					 						<span class="pf-title"><?php echo $correo ?></span>
 
 					 					    
 
@@ -46,7 +46,7 @@
 					 					</div>
 										<div class="col-lg-3">
 
-					 						<span class="pf-title" >Account Type</span>
+					 						<span class="pf-title"><?php echo $tipocuenta ?></span>
 
 					 					</div>
 
@@ -65,7 +65,7 @@
 
 					 					<div class="col-lg-6">
 
-					 						<span class="pf-title">First Name</span>
+					 						<span class="pf-title"><?php echo $nombre ?></span>
 
 					 						<div class="pf-field">
 
@@ -77,7 +77,7 @@
 
 					 					<div class="col-lg-6">
 
-					 						<span class="pf-title">Last Name</span>
+					 						<span class="pf-title"><? echo $apellidos ?></span>
 
 					 						<div class="pf-field">
 
@@ -89,12 +89,12 @@
 
 					 					<div class="col-lg-6">
 
-					 						<span class="pf-title">Country</span>
+					 						<span class="pf-title"><?php echo $pais ?></span>
 
 					 						<!--<div class="dropdown-field">-->
 
 												<select data-placeholder="Please Select Specialism" class="selectn" name="country" id="country">
-																<option value="">-- Select your country --</option>
+																<option value="">-- <?php $selecpais ?> --</option>
                                                                 <option value="Afghanistan">Afghanistan</option>
                                                                 <option value="Lland Islands">Lland Islands</option>
                                                                 <option value="Albania">Albania</option>
@@ -347,7 +347,7 @@
 
 					 					<div class="col-lg-6">
 
-					 						<span class="pf-title">Phone </span>
+					 						<span class="pf-title"><?php echo $telefono ?></span>
 
 					 						<div class="pf-field">
 
@@ -363,7 +363,7 @@
 
 					 					<div class="col-lg-12">
 
-					 						<button type="button" onclick="updateDetails();">Update Name</button>
+					 						<button type="button" onclick="updateDetails();"><?php echo $actnombre ?></button>
 
 					 					</div>
 
@@ -375,7 +375,7 @@
 
 							<div class="contact-edit">
 
-					 			<h3>Security Details</h3>
+					 			<h3 ><?php echo $detallesseguridad ?></h3>
 
 					 			<form id="fpass">
 
@@ -383,7 +383,7 @@
 
 					 					<div class="col-lg-4">
 
-					 						<span class="pf-title">Old password</span>
+					 						<span class="pf-title"><?php echo $vcontra?></span>
 
 					 						<div class="pf-field">
 
@@ -395,7 +395,7 @@
 
 					 					<div class="col-lg-4">
 
-					 						<span class="pf-title">New password</span>
+					 						<span class="pf-title"><?php echo $ncontra ?></span>
 
 					 						<div class="pf-field">
 
@@ -407,7 +407,7 @@
 
 					 					<div class="col-lg-4">
 
-					 						<span class="pf-title">Confirm new password</span>
+					 						<span class="pf-title"><?php echo $ccontra ?></span>
 
 					 						<div class="pf-field">
 
@@ -422,7 +422,7 @@
 
 					 					<div class="col-lg-12">
 
-					 						<button type="button" onclick="updatePass();">Change Password</button>
+					 						<button type="button" onclick="updatePass();"><?php echo $cambiarcontra ?></button>
 											
 					 					</div>
 

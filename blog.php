@@ -18,7 +18,7 @@
 
 							<div class="inner-title2">
 
-								<h3 >Blog</h3>
+								<h3><?php echo $blog ?></h3>
 
 							</div>
 
@@ -26,10 +26,10 @@
 
 								<ul class="breadcrumbs">
 
-									<li><a href="." title="">Home</a></li>
+									<li><a href="." title=""><?php echo $inicio ?></a></li>
 
 									
-									<li><a href="#" title="">Blog</a></li>
+									<li><a href="#" title=""><?php echo $blog ?></a></li>
 
 								</ul>
 

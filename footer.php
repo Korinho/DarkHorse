@@ -9,8 +9,8 @@
                               <div class="logo">
                                  <a href="#" title=""><img src="images/horseb.png" alt="" /></a>
                               </div>
-                              <span>Want to know more? Contact Us</span>
-                              <span>America: +1-305-600-4408</span>								<span>EMEA: +33 970 467 059</span>								<span>Asia-Pacific: +61 3 9018 5789</span>
+                              <span><?php echo $finfo?></span>
+                              <span><?php echo $ftel?></span>								<span><?php echo $ftel1?></span>								<span><?php echo $ftel2?></span>
                            </div>
                            <!-- About Widget -->
                         </div>
@@ -51,7 +51,7 @@
                            <div class="subscribe_widget">
                               <p></p>
                               <form>
-                                 <input type="text" placeholder="Enter Valid Email Address" />
+                                 <input type="text" placeholder="<?php echo $correovalido; ?>" />
                                  <button type="submit"><i class="la la-paper-plane"></i></button>
                               </form>
                            </div>
@@ -71,6 +71,20 @@
       <div class="account-popup-area signin-popup-box">
          <div class="account-popup">
             <span class="close-popup"><i class="la la-close"></i></span>
+
+
+
+
+
+
+
+            <!--OJO HASTA AQUI-->
+
+
+
+
+
+          
             <h3>User Login</h3>
             <span>Click To Login With Demo User</span>
             <div class="select-user">

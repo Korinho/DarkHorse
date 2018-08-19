@@ -8,13 +8,13 @@
 
 										<li class="inner-child active">
 
-											<a href="#" title=""><i class="la la-file-text"></i>My account</a>
+											<a href="#" title=""><i class="la la-file-text"></i><?php echo $micuenta ?></a>
 
 											<ul style="display: block;">
 
-												<li><a href="dashboard" >Dashboard</a></li>
+												<li><a href="dashboard" ><?php echo $panel ?></a></li>
 
-												<li><a href="account-details" >Account Details</a></li>
+												<li><a href="account-details" ><?php echo $$detallecuenta ?></a></li>
 
 												
 
@@ -37,11 +37,11 @@
 
 										<li class="inner-child">
 
-											<a href="#" title=""><i class="la la-briefcase"></i> Jobs</a>
+											<a href="#" title=""><i class="la la-briefcase"></i><?php echo $empleos ?></a>
 
 											<ul>
 
-												<li><a href="#" title="">My Applied Jobs</a></li>
+												<li><a href="#" title=""><?php echo $empleosaplicados ?></a></li>
 
 												
 
@@ -51,13 +51,13 @@
 
 										<li class="inner-child">
 
-											<a href="#" title=""><i class="la la-paper-plane"></i>Troubleshooting</a>
+											<a href="#" title=""><i class="la la-paper-plane"></i><?php echo $problemas?></a>
 
 											<ul>
 
-												<li><a href="#" title="">Report a problem</a></li>
+												<li><a href="#" title=""><?php echo $reportarproblema?></a></li>
 
-												<li><a href="#" title="">My Submitted Problems</a></li>
+												<li><a href="#" title=""><?php echo $problemareportado?></a></li>
 
 
 											</ul>
@@ -66,7 +66,7 @@
 
 									
 
-										<li><a href="logout.php" title=""><i class="la la-unlink"></i>Logout</a></li>
+										<li><a href="logout.php" title=""><i class="la la-unlink"></i><?php echo $desconectarse ?></a></li>
 
 									</ul>
 				 			</div>

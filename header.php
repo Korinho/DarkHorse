@@ -58,7 +58,7 @@ require_once("Model/route.php");
                         </ul>
                      </li>
                      <li class="menu-item-has-children">
-                        <a href="#" title="">Global Placements </a>
+                        <a href="#" title="" <? echo $mengelleesputo ?>>Global Placements </a>
                         <ul>
 							<li><a href="it-consulting" title="">IT Consulting</a></li>
 							<li><a href="sap-consulting" title="">SAP Consulting</a></li>
